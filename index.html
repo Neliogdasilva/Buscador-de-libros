@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buscador web </title>
+    <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">  
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+    <h1>Buscador de Autos</h1>
+
+    <div class="contenedor">
+
+        
+
+        <form id="buscador">
+            <div class="row">
+                <div class="three columns">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" class="u-full-width" id="isbn" placeholder="XXX-XXXXXX-XXX-X">
+                </div>
+                <div class="three columns">
+                    <label for="nombre">Nombre</label>
+                    <select class="u-full-width" id="nombre">
+                        <option value="">Seleccione</option>
+                    </select>
+                </div>
+                <div class="three columns">
+                    <label for="minimo">Precio Min</label>
+                    <select class="u-full-width" id="minimo">
+                            <option value="">Seleccione</option>
+                            <option value="20000">10</option>
+                            <option value="30000">20</option>
+                            <option value="40000">30</option>
+                            <option value="50000">40</option>
+                            <option value="60000">50</option>
+                            <option value="70000">60</option>
+                            <option value="80000">70</option>
+                            <option value="90000">80</option>
+                    </select>
+                </div>
+                <div class="three columns">
+                    <label for="maximo">Precio Max</label>
+                    <select class="u-full-width" id="maximo">
+                            <option value="">Seleccione</option>
+                            <option value="20000">10</option>
+                            <option value="30000">20</option>
+                            <option value="40000">30</option>
+                            <option value="50000">40</option>
+                            <option value="60000">50</option>
+                            <option value="70000">60</option>
+                            <option value="80000">70</option>
+                            <option value="90000">80</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="four columns">
+                        <label for="autor">Autor</label>
+                        <select class="u-full-width" id="autor">
+                                <option value="">Seleccione</option>
+                                <option value="2">2</option>
+                                <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="four columns">
+                        <label for="edicion">Edicion</label>
+                        <select class="u-full-width" id="edicion">
+                                <option value="">Seleccione</option>
+                                <option value="automatico">Automática</option>
+                                <option value="manual">Manual</option>
+                        </select>
+                    </div>
+                    <div class="four columns">
+                        <label for="categoria">Categoria</label>
+                        <select class="u-full-width" id="categoria">
+                                <option value="">Seleccione</option>
+                                <option value="novela_grafica">Novela Grafica</option>
+                                <option value="comic">Comic</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <h1>Resultados</h1>
+        <div id="resultado"></div>
+    </div>
+
+    <a class="sitio-web"  >ED Tecnica EG</a>
+
+    <script src="js/db.js"></script>
+    <script src="js/buscador.js"></script>
+</body>
+</html>
