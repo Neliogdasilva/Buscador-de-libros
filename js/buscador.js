@@ -5,8 +5,8 @@ const nombre = document.querySelector("#nombre");
 const minimo = document.querySelector("#minimo")
 const maximo = document.querySelector("#maximo");
 const autor = document.querySelector("#autor");
-const edicion = document.querySelector("#transmision");
-const categoria = document.querySelector("#color");
+const edicion = document.querySelector("#edicion");
+const categoria = document.querySelector("#categoria");
 const resultado = document.querySelector("#resultado");
 
 const max = new Date().getFullYear();
@@ -25,13 +25,6 @@ const datosBusqueda = {
 }
 
 //evento
-document.addEventListener( "DOMContentLoaded",()=>{
-    //llenar el listado del select de year
-    llenarSelect();
-
-    mostrarAutos(autos);
-
-});
 
 isbn.addEventListener("input" ,e=>{
     datosBusqueda.isbn = e.target.value
@@ -41,7 +34,7 @@ isbn.addEventListener("input" ,e=>{
 })
 
 nombre.addEventListener("input" ,e=>{
-    datosBusqueda.nombre = Number(e.target.value)
+    datosBusqueda.nombre = e.target.value
     //console.log(datosBusqueda)
     filtrarAuto();
 })
@@ -59,13 +52,13 @@ maximo.addEventListener("input" ,e=>{
 })
 
 autor.addEventListener("input" ,e=>{
-    datosBusqueda.autor = Number(e.target.value)
+    datosBusqueda.autor = e.target.value
     //console.log(datosBusqueda)
     filtrarAuto();
 })
 
 edicion.addEventListener("input" ,e=>{
-    datosBusqueda.edicion = e.target.value
+    datosBusqueda.edicion = Number(e.target.value)
     //console.log(datosBusqueda)
     filtrarAuto();
 })
@@ -91,9 +84,9 @@ function mostrarAutos(arregloAutos){
     arregloAutos.forEach(auto => {
         const autoHTML = document.createElement("p")
         
-        const {isbn,modelo,nombre,precio,categoria,autor,edicion} = auto;
+        const {isbn,nombre,precio,categoria,autor,edicion} = auto;
         
-        autoHTML.textContent = `${isbn} - ${modelo} - Año: ${nombre} - Precio: ${precio}$ - categoria: ${categoria} - autor: ${autor} - Trasmision: ${edicion}`;
+        autoHTML.textContent = `${isbn} - Nombre: ${nombre} - Autor: ${autor} - Categoria: ${categoria} - Edicion: ${edicion} - Precio: ${precio}$ `;
         resultado.appendChild(autoHTML);
     });
 }
@@ -107,7 +100,7 @@ function limpiarHTML(){
 }
 
 function filtrarAuto(){
-    const resultado = autos.filter(filtrarisbn).filter(filtrarnombre).filter(filtrarMaximo).filter(filtrarMinimo).filter(filtrarautor).filter(filtrarcategoria)
+    const resultado = autos.filter(filtrarIsbn).filter(filtrarNombre).filter(filtrarMaximo).filter(filtrarMinimo).filter(filtrarAutor).filter(filtrarCategoria).filter(filtrarEdicion)
 
     console.log(resultado)
     
@@ -126,14 +119,14 @@ function noResultado(){
     document.querySelector('#resultado').appendChild(noResultado); 
 }
 
-function filtrarisbn(auto){
+function filtrarIsbn(auto){
     if(datosBusqueda.isbn){
         return auto.isbn === datosBusqueda.isbn
     }
     return auto;
 }
 
-function filtrarnombre(auto){
+function filtrarNombre(auto){
     if(datosBusqueda.nombre){
         return auto.nombre === datosBusqueda.nombre
     }
@@ -154,16 +147,23 @@ function filtrarMaximo(auto){
     return auto;
 }
 
-function filtrarautor(auto){
+function filtrarAutor(auto){
     if(datosBusqueda.autor){
         return auto.autor === datosBusqueda.autor
     }
     return auto;
 }
 
-function filtrarcategoria(auto){
+function filtrarCategoria(auto){
     if(datosBusqueda.categoria){
         return auto.categoria === datosBusqueda.categoria
+    }
+    return auto;
+}
+
+function filtrarEdicion(auto){
+    if(datosBusqueda.edicion){
+        return auto.edicion === datosBusqueda.edicion
     }
     return auto;
 }

@@ -1,7 +1,7 @@
 const autos = [
 	{
 		isbn: '123-456789-012-3',
-		nombre: 'Batman: Año Uno',
+		nombre: 'Batman Año Uno',
 		autor: "Frank Miller",
 		precio: 30,
 		edicion: 5,
@@ -34,7 +34,7 @@ const autos = [
 	{
 		isbn: '753-951753-753-9',
 		nombre: 'Wonder Woman: Tierra Uno',
-		autor: "Grant Morrison ",
+		autor: "Grant Morrison",
 		precio: 15,
 		edicion: 4,
 		categoria: 'Comic',
